@@ -7,10 +7,10 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
-- script: dir cd Build.Repository.LocalPath dir
+- script: dir cd $Build.Repository.LocalPath dir
   displayName: 'Run a one-line script'
 - task: AzurePowerShell@5
   inputs:
