@@ -16,7 +16,7 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      dir PipelineWorkspace $Pipeline.Workspace
+      dir
       cd $Pipeline.Workspace
       dir
       cd CubeItUp.Infrastructure
