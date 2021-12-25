@@ -18,7 +18,8 @@ steps:
     inlineScript: |
       dir
       Write-Host Build $Build.ArtifactStagingDirectory
-      cd $Build.ArtifactStagingDirectory
+      Write-Host PipelineWorkspace $Pipeline.Workspace
+      Write-Host system $System.DefaultWorkingDirectory	
       dir
 - task: AzurePowerShell@5
   inputs:
