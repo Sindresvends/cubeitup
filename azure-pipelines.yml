@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: dir cd Build.Repository.LocalPath dir
   displayName: 'Run a one-line script'
 - task: AzurePowerShell@5
   inputs:
