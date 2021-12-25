@@ -10,17 +10,17 @@ pool:
   vmImage: windows-latest
 
 steps:
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
-#     scriptType: 'ps'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       dir
-#       Write-Host Build $Build.ArtifactStagingDirectory
-#       Write-Host PipelineWorkspace $Pipeline.Workspace
-#       Write-Host system $System.DefaultWorkingDirectory	
-#       dir
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      dir PipelineWorkspace $Pipeline.Workspace
+      cd $Pipeline.Workspace
+      dir
+      cd CubeItUp.Infrastructure
+      dir
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
