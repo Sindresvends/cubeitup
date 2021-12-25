@@ -25,7 +25,7 @@ steps:
   inputs:
     azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
     ScriptType: 'FilePath'
-    ScriptPath: '$PipelineWorkspace/CubeItUp/Infrastructure/DeployInfrastructure.ps1'
+    ScriptPath: '$Pipeline.Workspace/CubeItUp/Infrastructure/DeployInfrastructure.ps1'
     azurePowerShellVersion: 'LatestVersion'
 
 - script: |
