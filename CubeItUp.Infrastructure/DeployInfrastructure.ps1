@@ -2,7 +2,7 @@ param (
     [string]$environment
 )
 $environmentPrefix = "d"
-if ($environment == "production") {
+if ($environment -eq "production") {
     $environmentPrefix = "p"
 }
 
