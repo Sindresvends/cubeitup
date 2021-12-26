@@ -10,5 +10,4 @@ variables:
 
 - template: ${{ variables.deploymentFile }}
   parameters: 
-    environmentPrefix: d
-
+    environmentPrefix: 'd'
