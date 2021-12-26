@@ -4,11 +4,12 @@ trigger:
 pool:
   vmImage: windows-latest
 
-- variables:
-  deploymentFile: deploy.yml
+variables:
+- name: deploymentFile 
+  value: deploy.yml
 
-# - template: $deploymentFile
-#   parameters: d
+- template: $deploymentFile
+  parameters: d
 
 # - template: $deploymentFile
 #   parameters: p
