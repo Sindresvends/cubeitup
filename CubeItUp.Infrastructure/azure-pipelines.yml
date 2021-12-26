@@ -7,8 +7,8 @@ pool:
 - variables:
   deploymentFile: deploy.yml
 
-- template: Deploy infrastructure dev
+- template: $deploymentFile
   parameters: d
 
-- template: Deploy infrastructure prod
-  parameters: p
+# - template: $deploymentFile
+#   parameters: p
