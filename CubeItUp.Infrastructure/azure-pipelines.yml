@@ -12,5 +12,3 @@ variables:
   parameters: 
     environmentPrefix: d
 
-- template: $deploymentFile
-  parameters: p
