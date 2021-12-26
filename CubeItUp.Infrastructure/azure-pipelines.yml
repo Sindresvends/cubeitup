@@ -6,7 +6,7 @@ pool:
 
 variables:
 - name: deploymentFile 
-  value: ArmTemplates/AppServicedeploy.yml
+  value: deploy.yml
 
 - template: ${{ variables.deploymentFile }}
   parameters: 
