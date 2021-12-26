@@ -9,7 +9,8 @@ stages:
 - stage: DeployInfrastructure$(environmentPrefix)
   displayName: Deploy Infrastructure $(environmentPrefix)
   jobs:
-  - deployment: Deploy
+  - deployment:
+    displayName: 'Deploy infrastructure powershell script'
     strategy: 
       runOnce:
         deploy:
