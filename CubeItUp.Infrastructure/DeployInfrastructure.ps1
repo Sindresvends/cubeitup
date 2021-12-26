@@ -12,4 +12,4 @@ $ResourceGroupName = $environmentPrefix + "CubeItUpRg"
 New-AzResourceGroup -Name $ResourceGroupName -Location "West Europe"
 
 #Deploy app service plan
-New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile 'ArmTemplates/AppServicePlan/Template.json'
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile 'CubeItUp.Infrastructure/ArmTemplates/AppServicePlan/Template.json'
