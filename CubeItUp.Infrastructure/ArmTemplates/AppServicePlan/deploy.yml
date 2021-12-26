@@ -1,0 +1,25 @@
+pool:
+  vmImage: windows-latest
+
+parameters:
+- name: environmentPrefix
+  type: string
+  values:
+    - d
+    - p
+
+stages:
+- stage: DeployInfrastructure$(environmentPrefix)
+  displayName: Deploy Infrastructure $(environmentPrefix)
+  jobs:
+  - deployment: Deploy
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
+              scriptType: 'ps'
+              scriptLocation: 'scriptPath'
+              scriptPath: 'CubeItUp.Infrastructure/DeployInfrastructure.ps1'
