@@ -1,13 +1,13 @@
 parameters:
 - name: environmentPrefix
   type: string
-  values:
-    - d
-    - p
+  # values:
+  #   - 'd'
+  #   - p
 
 stages:
-- stage: DeployInfrastructure$(environmentPrefix)
-  displayName: Deploy Infrastructure $(environmentPrefix)
+- stage: DeployInfrastructure
+  displayName: Deploy Infrastructure
   jobs:
   - deployment:
     displayName: 'Deploy infrastructure powershell script'
