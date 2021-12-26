@@ -1,6 +1,3 @@
-pool:
-  vmImage: windows-latest
-
 parameters:
 - name: environmentPrefix
   type: string
