@@ -9,7 +9,8 @@ variables:
   value: deploy.yml
 
 - template: $deploymentFile
-  parameters: d
+  parameters: 
+    environmentPrefix: d
 
 # - template: $deploymentFile
 #   parameters: p
