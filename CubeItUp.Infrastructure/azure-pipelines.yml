@@ -4,11 +4,13 @@ trigger:
 pool:
   vmImage: windows-latest
 
-- variables:
-  deploymentFile: deploy.yml
+variables:
+- name: deploymentFile 
+  value: ArmTemplates/AppServicedeploy.yml
 
-- template: Deploy infrastructure dev
-  parameters: d
+- template: ${{ variables.deploymentFile }}
+  parameters: 
+    environmentPrefix: d
 
-- template: Deploy infrastructure prod
-  parameters: p
+# - template: $deploymentFile
+#   parameters: p
