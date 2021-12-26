@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       dir
+#       cd CubeItUp.Infrastructure
+#       dir
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
+    scriptType: 'ps'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'CubeItUp.Infrastructure/DeployInfrastructure.ps1'
