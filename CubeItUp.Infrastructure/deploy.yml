@@ -12,6 +12,7 @@ stages:
   jobs:
   - deployment:
     displayName: 'Deploy infrastructure powershell script'
+    environment: 'CubeItUp'    
     strategy: 
       runOnce:
         deploy:
