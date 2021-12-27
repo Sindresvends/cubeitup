@@ -21,7 +21,9 @@ stages:
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
               ScriptType: 'InlineScript'
-              Inline: 'dir'
+              Inline: |
+                dir
+                Write-Host 'hei'
               azurePowerShellVersion: 'LatestVersion'
           - task: AzureCLI@2
             inputs:
