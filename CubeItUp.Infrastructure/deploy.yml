@@ -17,12 +17,12 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureCLI@2
+          - task: AzurePowerShell@5
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
-              scriptType: 'ps'
-              scriptLocation: 'inlineScript'
-              inlineScript: 'dir'
+              ScriptType: 'InlineScript'
+              Inline: 'dir'
+              azurePowerShellVersion: 'LatestVersion'
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
