@@ -1,6 +1,7 @@
 parameters:
 - name: environmentPrefix
   type: string
+  default: 'd'
   # values:
   #   - 'd'
   #   - p
