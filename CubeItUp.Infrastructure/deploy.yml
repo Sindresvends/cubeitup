@@ -24,6 +24,7 @@ stages:
               Inline: |
                 dir
                 Write-Host 'hei'
+                dir
               azurePowerShellVersion: 'LatestVersion'
           - task: AzureCLI@2
             inputs:
