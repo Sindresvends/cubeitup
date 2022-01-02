@@ -8,9 +8,10 @@ variables:
 - name: deploymentFile 
   value: deploy.yml
 - name: InfrastructurePath
+  value: CubeItUpInfrastructure/s/CubeItUp.Infrastructure
 
 stages:
-- stage: PublishArtifact
+- stage: Publish Artifact
   jobs: 
   - job: PublishArtifact
     steps:
