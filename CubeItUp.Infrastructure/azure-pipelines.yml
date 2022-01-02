@@ -8,6 +8,17 @@ variables:
 - name: deploymentFile 
   value: deploy.yml
 
+stages:
+- stage: PublishArtifact
+  jobs: 
+  - job: PublishArtifact
+    steps:
+    - task: PublishPipelineArtifact@1
+      inputs:
+      targetPath: '$(Pipeline.Workspace)'
+      artifact: 'CubeItUpInfrastructure'
+      publishLocation: 'pipeline'
+
 - template: ${{ variables.deploymentFile }}
   parameters: 
     environmentPrefix: 'd'
