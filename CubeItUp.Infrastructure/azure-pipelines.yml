@@ -11,7 +11,7 @@ variables:
   value: CubeItUpInfrastructure/s/CubeItUp.Infrastructure
 
 stages:
-- stage: Publish Artifact
+- stage: PublishArtifact
   jobs: 
   - job: PublishArtifact
     steps:
