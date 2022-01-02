@@ -15,9 +15,9 @@ stages:
     steps:
     - task: PublishPipelineArtifact@1
       inputs:
-      targetPath: '$(Pipeline.Workspace)'
-      artifact: 'CubeItUpInfrastructure'
-      publishLocation: 'pipeline'
+        targetPath: '$(Pipeline.Workspace)'
+        artifact: 'CubeItUpInfrastructure'
+        publishLocation: 'pipeline'
 
 - template: ${{ variables.deploymentFile }}
   parameters: 
