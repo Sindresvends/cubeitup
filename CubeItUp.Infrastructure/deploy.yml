@@ -17,6 +17,12 @@ stages:
       runOnce:
         deploy:
           steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'CubeItUpInfrastructure'
+              downloadPath: '$(System.ArtifactsDirectory)'
           - task: AzurePowerShell@5
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
