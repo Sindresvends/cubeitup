@@ -17,7 +17,7 @@ stages:
     steps:
     - task: PublishPipelineArtifact@1
       inputs:
-        targetPath: '$(Pipeline.Workspace)/$ {{ variables.InfrastructurePath }}'
+        targetPath: '$(Pipeline.Workspace)/${{ variables.InfrastructurePath }}'
         artifact: 'CubeItUpInfrastructure'
         publishLocation: 'pipeline'
 
