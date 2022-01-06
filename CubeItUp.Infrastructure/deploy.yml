@@ -2,13 +2,13 @@ parameters:
 - name: environmentPrefix
   type: string
   default: 'd'
-  # values:
-  #   - 'd'
-  #   - p
+  values:
+    - 'd'
+    - 'p'
 
 stages:
 - stage: DeployInfrastructure
-  displayName: Deploy Infrastructure
+  displayName: Deploy Infrastructure ${{ parameters.environmentPrefix }}
   jobs:
   - deployment:
     displayName: 'Deploy infrastructure powershell script'
@@ -23,16 +23,6 @@ stages:
               downloadType: 'single'
               artifactName: 'CubeItUpInfrastructure'
               downloadPath: '$(System.ArtifactsDirectory)'
-          - task: AzurePowerShell@5
-            inputs:
-              azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
-              ScriptType: 'InlineScript'
-              Inline: |
-                dir
-                Write-Host 'hei'
-                cd $(System.ArtifactsDirectory)
-                dir
-              azurePowerShellVersion: 'LatestVersion'
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
