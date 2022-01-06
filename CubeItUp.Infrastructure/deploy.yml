@@ -38,4 +38,4 @@ stages:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
               scriptType: 'ps'
               scriptLocation: 'scriptPath'
-              scriptPath: 'DeployInfrastructure.ps1'
+              scriptPath: '$(System.ArtifactsDirectory)/DeployInfrastructure.ps1'
