@@ -6,6 +6,7 @@ if ($environment -eq "production") {
     $environmentPrefix = "p"
 }
 Install-Module -Name Az -AllowClobber -force
+Install-Module -Name Az.Resources -AllowClobber -force
 $ResourceGroupName = $environmentPrefix + "CubeItUpRg"
 
 #Create resource group
