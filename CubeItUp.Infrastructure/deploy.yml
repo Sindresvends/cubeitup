@@ -30,6 +30,7 @@ stages:
               Inline: |
                 dir
                 Write-Host 'hei'
+                cd $(System.ArtifactsDirectory)
                 dir
               azurePowerShellVersion: 'LatestVersion'
           - task: AzureCLI@2
