@@ -8,7 +8,9 @@ if ($environment -eq "production") {
 Install-Module -Name Az -AllowClobber -force
 Install-Module -Name Az.Resources -AllowClobber -force
 $ResourceGroupName = $environmentPrefix + "CubeItUpRg"
-
+Write-Host $ResourceGroupName
+Write-Host $environment
+Write-Host $environmentPrefix
 #Create resource group
 New-AzResourceGroup -Name $ResourceGroupName -Location "West Europe"
 
