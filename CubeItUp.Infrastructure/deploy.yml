@@ -33,4 +33,4 @@ stages:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
               scriptType: 'pscore'
               scriptLocation: 'scriptPath'
-              scriptPath: 'DeployInfrastructure.ps1'
+              scriptPath: '$(Pipeline.Workspace)/DeployInfrastructure.ps1'
