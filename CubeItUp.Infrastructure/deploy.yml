@@ -20,17 +20,6 @@ stages:
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
-              scriptType: 'ps'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                dir
-                cd
-                dir
-                cd $(System.DefaultWorkingDirectory)
-                dir
-          - task: AzureCLI@2
-            inputs:
-              azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
               scriptType: 'pscore'
               scriptLocation: 'scriptPath'
               scriptPath: '$(Pipeline.Workspace)/CubeItUpInfrastructure/DeployInfrastructure.ps1'
