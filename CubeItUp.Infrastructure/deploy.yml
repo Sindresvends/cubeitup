@@ -24,6 +24,8 @@ stages:
               scriptLocation: 'inlineScript'
               inlineScript: |
                 dir
+                cd
+                dir
                 cd $(System.DefaultWorkingDirectory)
                 dir
           - task: AzureCLI@2
