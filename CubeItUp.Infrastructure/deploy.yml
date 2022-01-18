@@ -34,3 +34,4 @@ stages:
               scriptType: 'pscore'
               scriptLocation: 'scriptPath'
               scriptPath: '$(Pipeline.Workspace)/CubeItUpInfrastructure/DeployInfrastructure.ps1'
+              arguments: '-environment $(environmentPrefix)'
