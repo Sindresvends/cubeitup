@@ -16,4 +16,4 @@ Write-Host $environmentPrefix
 az group create -l westeurope -n $ResourceGroupName
 
 #Deploy app service plan
-New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile 'CubeItUp.Infrastructure/ArmTemplates/AppServicePlan/Template.json'
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile 'CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json'
