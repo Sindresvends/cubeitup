@@ -12,8 +12,7 @@ Write-Host $ResourceGroupName
 Write-Host $environment
 Write-Host $environmentPrefix
 dir
-cd
-$(Pipeline.Workspace)
+cd $(Pipeline.Workspace)
 dir
 cd CubeItUpInfrastructure
 dir
