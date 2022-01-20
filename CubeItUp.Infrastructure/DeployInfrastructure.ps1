@@ -11,6 +11,12 @@ $ResourceGroupName = $environmentPrefix + "CubeItUpRg"
 Write-Host $ResourceGroupName
 Write-Host $environment
 Write-Host $environmentPrefix
+dir
+cd
+$(Pipeline.Workspace)
+dir
+cd CubeItUpInfrastructure
+dir
 #Create resource group
 #New-AzResourceGroup -Name $ResourceGroupName -Location "West Europe"
 az group create -l westeurope -n $ResourceGroupName
