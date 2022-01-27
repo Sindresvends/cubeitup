@@ -4,37 +4,30 @@
     "parameters": {
         "name": {
             "type": "string",
-            "value": "CIUASP01",
             "defaultvalue": "CIUASP01"
         },
         "location": {
             "type": "string",
-            "value": "West Europe",
             "defaultvalue": "West Europe"
         },
         "sku": {
             "type": "string",
-            "value": "Free",
             "defaultvalue": "Free"
         },
         "skucode": {
             "type": "string",
-            "value": "F1",
             "defaultvalue": "F1"
         },
         "workerSize": {
             "type": "string",
-            "value": "0",
             "defaultvalue": "0"
         },
         "workerSizeId": {
             "type": "string",
-            "value": "0",
             "defaultvalue": "West Europe"
         },
         "numberOfWorkers": {
             "type": "string",
-            "value": "1",
             "defaultvalue": "1"
         }
     },
