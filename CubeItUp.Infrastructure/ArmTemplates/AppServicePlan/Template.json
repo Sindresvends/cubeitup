@@ -5,7 +5,7 @@
         "name": {
             "type": "string",
             "value": "CIUASP01",
-            "defaultvalue": "CIUASP01",
+            "defaultvalue": "CIUASP01"
         },
         "location": {
             "type": "string",
