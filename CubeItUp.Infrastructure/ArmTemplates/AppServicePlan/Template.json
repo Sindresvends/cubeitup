@@ -14,7 +14,7 @@
             "type": "string",
             "defaultvalue": "Free"
         },
-        "skucode": {
+        "skuCode": {
             "type": "string",
             "defaultvalue": "F1"
         },
