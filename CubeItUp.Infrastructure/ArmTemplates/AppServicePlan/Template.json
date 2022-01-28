@@ -2,54 +2,29 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
+        "appServicePlanName": {
             "type": "string",
-            "defaultValue": "CIUASP01"
+            "defaultValue": "ciuasp01"
         },
         "location": {
             "type": "string",
             "defaultValue": "West Europe"
         },
-        "sku": {
-            "type": "string",
-            "defaultValue": "Free"
-        },
         "skuCode": {
             "type": "string",
             "defaultValue": "F1"
-        },
-        "workerSize": {
-            "type": "string",
-            "defaultValue": "0"
-        },
-        "workerSizeId": {
-            "type": "string",
-            "defaultValue": "West Europe"
-        },
-        "numberOfWorkers": {
-            "type": "string",
-            "defaultValue": "1"
         }
     },
     "resources": [
         {
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('name')]",
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('appServicePlanName')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[parameters('location')]",
             "kind": "linux",
             "tags": {},
-            "properties": {
-                "name": "[parameters('name')]",
-                "workerSize": "[parameters('workerSize')]",
-                "workerSizeId": "[parameters('workerSizeId')]",
-                "numberOfWorkers": "[parameters('numberOfWorkers')]",
-                "reserved": true,
-                "zoneRedundant": false
-            },
             "sku": {
-                "Tier": "[parameters('sku')]",
-                "Name": "[parameters('skuCode')]"
+                "name": "[parameters('skuCode')]"
             }
         }
     ]
