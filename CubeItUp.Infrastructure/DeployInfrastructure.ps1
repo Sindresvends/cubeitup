@@ -22,4 +22,4 @@ az group create -l westeurope -n $ResourceGroupName
 
 #Deploy app service plan
 #New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile '../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json' -TemplateParameterFile '../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Parameters.json'
-az deployment group create --resource-group $ResourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
+az deployment group create --resource-group $ResourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json --parameters @Parameters.json
