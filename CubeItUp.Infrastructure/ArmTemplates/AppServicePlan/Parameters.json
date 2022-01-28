@@ -3,25 +3,39 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "name": {
-            "value": "CIUASP01"
+            "value": "CIUASP01",
+            "type": "string",
+            "defaultvalue": "CIUASP01"
         },
         "location": {
-            "value": "West Europe"
+            "value": "West Europe",
+            "type": "string",
+            "defaultvalue": "West Europe"
         },
         "numberOfWorkers": {
-            "value": "1"
+            "value": "1",
+            "type": "string",
+            "defaultvalue": "1"
         },
         "sku": {
-            "value": "Free"
+            "value": "Free",
+            "type": "string",
+            "defaultvalue": "Free"
         },
         "skuCode": {
-            "value": "F1"
+            "value": "F1",
+            "type": "string",
+            "defaultvalue": "F1"
         },
         "workerSize": {
-            "value": "0"
+            "value": "0",
+            "type": "string",
+            "defaultvalue": "0"
         },
         "workerSizeId": {
-            "value": "0"
+            "value": "0",
+            "type": "string",
+            "defaultvalue": "West Europe"
         }
     }
 }
