@@ -7,10 +7,27 @@ if ($environment -eq "production") {
 }
 Install-Module -Name Az -AllowClobber -force
 Install-Module -Name Az.Resources -AllowClobber -force
-$ResourceGroupName = $environmentPrefix + "CubeItUpRg"
+
+######naming resources, all resources should use resourcePrefix######
+$resourcePrefix = $environmentPrefix + "ciu"
+$resourceGroupName = $resourcePrefix + "rg"
+
+#cosmos db
+$cosmosDbAccountName = $resourcePrefix + "account"
+$cosmosDbName = $resourcePrefix + "db"
+$cosmosDbContainer = $resourcePrefix + "container"
+
+######################################################################
 
 #Create resource group
-az group create -l westeurope -n $ResourceGroupName
+az group create -l westeurope -n $resourceGroupName
+
+#Deploy cosmos db
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateFile ../CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json`
+  -accountName $cosmosDbAccountName`
+#az deployment group create --resource-group $ResourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json 
+#--parameters "{ \"location\": { \"value\": \"westus\" } }"
 
 #Deploy app service plan
-az deployment group create --resource-group $ResourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
+az deployment group create --resource-group $resourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
