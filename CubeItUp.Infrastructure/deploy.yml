@@ -17,10 +17,10 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureCLI@2
+          - task: AzurePowerShell@5
             inputs:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
-              scriptType: 'pscore'
-              scriptLocation: 'scriptPath'
-              scriptPath: '$(Pipeline.Workspace)/CubeItUpInfrastructure/DeployInfrastructure.ps1'
-              arguments: '-environment ${{ parameters.environmentPrefix }}'
+              ScriptType: 'FilePath'
+              ScriptPath: '$(Pipeline.Workspace)/CubeItUpInfrastructure/DeployInfrastructure.ps1'
+              ScriptArguments: '-environment ${{ parameters.environmentPrefix }}'
+              azurePowerShellVersion: 'LatestVersion'
