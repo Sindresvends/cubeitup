@@ -30,11 +30,12 @@ $cosmosDbContainer = $resourcePrefix + "container"
 ######################################################################
 
 #Create resource group
-az group create -l westeurope -n $resourceGroupName
+New-AzResourceGroup -Name $resourceGroupName -Location "west europe"
+#az group create -l westeurope -n $resourceGroupName
 
 
 #Deploy app service plan
-az deployment group create --resource-group $resourceGroupName --template-file CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
+#az deployment group create --resource-group $resourceGroupName --template-file CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
 
 #Deploy cosmos db
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
