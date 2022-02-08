@@ -12,15 +12,15 @@ if ($environment -eq "production") {
 $resourcePrefix = $environmentPrefix + "ciu"
 $resourceGroupName = $resourcePrefix + "rg"
 
-Dir
-cd ..
-dir
-cd CubeItUpInfrastructure
-dir
-cd ArmTemplates
-dir
-cd CosmosDb
-dir
+#Dir
+#cd ..
+#dir
+#cd CubeItUpInfrastructure
+#dir
+#cd ArmTemplates
+#dir
+#cd CosmosDb
+#dir
 
 #cosmos db
 $cosmosDbAccountName = $resourcePrefix + "account"
@@ -34,7 +34,7 @@ az group create -l westeurope -n $resourceGroupName
 
 
 #Deploy app service plan
-az deployment group create --resource-group $resourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
+az deployment group create --resource-group $resourceGroupName --template-file CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
 
 #Deploy cosmos db
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
