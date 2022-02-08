@@ -5,8 +5,8 @@ $environmentPrefix = "d"
 if ($environment -eq "production") {
     $environmentPrefix = "p"
 }
-Install-Module -Name Az -AllowClobber -force
-Install-Module -Name Az.Resources -AllowClobber -force
+#Install-Module -Name Az -AllowClobber -force
+#Install-Module -Name Az.Resources -AllowClobber -force
 
 ######naming resources, all resources should use resourcePrefix######
 $resourcePrefix = $environmentPrefix + "ciu"
