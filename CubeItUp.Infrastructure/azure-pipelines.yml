@@ -24,4 +24,4 @@ stages:
 
 - template: ${{ variables.deploymentFile }}
   parameters: 
-    environmentPrefix: 'd'
+    environment: 'dev'
