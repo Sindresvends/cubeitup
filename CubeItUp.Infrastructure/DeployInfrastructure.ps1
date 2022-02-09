@@ -38,7 +38,8 @@ New-AzResourceGroup -Name $resourceGroupName -Location "west europe"
 #az deployment group create --resource-group $resourceGroupName --template-file CubeItUpInfrastructure/ArmTemplates/AppServicePlan/Template.json
 
 #Deploy cosmos db
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json" -accountName $cosmosDbAccountName
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json"
+#-accountName $cosmosDbAccountName
 #az deployment group create --resource-group $ResourceGroupName --template-file ../CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json 
 #--parameters "{ \"location\": { \"value\": \"westus\" } }"
 
