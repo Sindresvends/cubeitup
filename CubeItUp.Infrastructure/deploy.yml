@@ -1,10 +1,10 @@
 parameters:
-- name: environmentPrefix
+- name: environment
   type: string
-  default: 'd'
+  default: 'dev'
   values:
-    - 'd'
-    - 'p'
+    - 'dev'
+    - 'prod'
 
 stages:
 - stage: DeployInfrastructure
