@@ -1,8 +1,9 @@
 param (
+    [ValidateSet("dev", "prod")]
     [string]$environment
 )
 $environmentPrefix = "d"
-if ($environment -eq "production") {
+if ($environment -eq "prod") {
     $environmentPrefix = "p"
 }
 #Install-Module -Name Az -AllowClobber -force
