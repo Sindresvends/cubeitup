@@ -8,7 +8,7 @@ parameters:
 
 stages:
 - stage: DeployInfrastructure
-  displayName: Deploy Infrastructure ${{ parameters.environmentPrefix }}
+  displayName: Deploy Infrastructure ${{ parameters.environment }}
   jobs:
   - deployment:
     displayName: 'Deploy infrastructure powershell script'
