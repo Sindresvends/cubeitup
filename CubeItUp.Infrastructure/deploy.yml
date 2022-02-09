@@ -22,5 +22,5 @@ stages:
               azureSubscription: 'Visual Studio Professional (c5e3f6a1-9951-44ab-aa57-12d7bdb5b79a)'
               ScriptType: 'FilePath'
               ScriptPath: '$(Pipeline.Workspace)/CubeItUpInfrastructure/DeployInfrastructure.ps1'
-              ScriptArguments: '-environment ${{ parameters.environmentPrefix }}'
+              ScriptArguments: '-environment ${{ parameters.environment }}'
               azurePowerShellVersion: 'LatestVersion'
