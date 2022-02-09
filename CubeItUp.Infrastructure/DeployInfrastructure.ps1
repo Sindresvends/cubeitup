@@ -30,7 +30,7 @@ $cosmosDbContainer = $resourcePrefix + "container"
 ######################################################################
 
 #Create resource group
-New-AzResourceGroup -Name $resourceGroupName -Location "west europe"
+New-AzResourceGroup -Name $resourceGroupName -Location "west europe" -Force
 #az group create -l westeurope -n $resourceGroupName
 
 
