@@ -12,15 +12,15 @@ if ($environment -eq "production") {
 $resourcePrefix = $environmentPrefix + "ciu"
 $resourceGroupName = $resourcePrefix + "rg"
 
-#Dir
-#cd ..
-#dir
-#cd CubeItUpInfrastructure
-#dir
-#cd ArmTemplates
-#dir
-#cd CosmosDb
-#dir
+Dir
+cd ..
+dir
+cd CubeItUpInfrastructure
+dir
+cd ArmTemplates
+dir
+cd CosmosDb
+dir
 
 #cosmos db
 $cosmosDbAccountName = $resourcePrefix + "account"
