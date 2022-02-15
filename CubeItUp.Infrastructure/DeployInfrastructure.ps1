@@ -30,5 +30,5 @@ New-AzResourceGroup -Name $resourceGroupName -Location "west europe" -Force
 #Deploy cosmos db
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "../CubeItUpInfrastructure/ArmTemplates/CosmosDb/template.json" -Force
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateFile "../CubeItUpInfrastructure/ArmTemplates/ContainerApp/template.json" -Force `
+    -TemplateFile "../CubeItUpInfrastructure/ArmTemplates/Containers/template.json" -Force `
     -environmentName $containerAppEnvironmentName
