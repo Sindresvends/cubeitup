@@ -23,12 +23,6 @@
         "description": "The primary replica region for the Cosmos DB account."
       }
     },
-    "secondaryRegion": {
-      "type": "string",
-      "metadata": {
-        "description": "The secondary replica region for the Cosmos DB account."
-      }
-    },
     "maxStalenessPrefix": {
       "type": "int",
       "defaultValue": 100000,
