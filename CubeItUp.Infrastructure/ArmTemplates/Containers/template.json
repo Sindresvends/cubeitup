@@ -12,7 +12,8 @@
         }
     },
     "variables": {
-        "registryName": "[concat(parameters('resourcePrefix'), 'acr')]"
+        "registryName": "[concat(parameters('resourcePrefix'), 'acr')]",
+        "workspaceName": "[concat(parameters('resourcePrefix'), 'ws')]"
     },
     "resources": [
         {
@@ -51,20 +52,20 @@
                 "zoneRedundancy": "Disabled"
             }
         },
-        {
+       {
           "type": "Microsoft.OperationalInsights/workspaces",
-          "name": "[parameters('workspaceName')]",
+          "name": "[variables('workspaceName')]",
           "apiVersion": "2020-08-01",
           "location": "[parameters('location')]",
           "properties": {
               "sku": {
-                  "name": "[parameters('sku')]"
+                  "name": "PerGB2018"
               },
-              "retentionInDays": "[parameters('retentionInDays')]",
+              "retentionInDays": "120",
               "features": {
-                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+                  "enableLogAccessUsingOnlyResourcePermissions": "true"
               }
-           }
-        }
+          }
+       }
     ]
 }
