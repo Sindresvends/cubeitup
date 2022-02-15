@@ -2,13 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "accountName": {
-      "type": "string",
-      "defaultValue": "dciucosmosdb",
-      "metadata": {
-        "description": "Cosmos DB account name, max length 44 characters"
-      }
-    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -16,170 +9,59 @@
         "description": "Location for the Cosmos DB account."
       }
     },
-    "primaryRegion": {
+    "accountName": {
       "type": "string",
-	  "defaultValue": "west europe",
+      "defaultValue": "[dciuaccount]",
       "metadata": {
-        "description": "The primary replica region for the Cosmos DB account."
+        "description": "Cosmos Account Name"
       }
-    },
-    "maxStalenessPrefix": {
-      "type": "int",
-      "defaultValue": 100000,
-      "metadata": {
-        "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
-      },
-      "maxValue": 2147483647,
-      "minValue": 10
-    },
-    "maxIntervalInSeconds": {
-      "type": "int",
-      "defaultValue": 300,
-      "metadata": {
-        "description": "Max lag time (minutes). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
-      },
-      "maxValue": 86400,
-      "minValue": 5
-    },
-    "automaticFailover": {
-      "type": "bool",
-      "defaultValue": true,
-      "metadata": {
-        "description": "Enable automatic failover for regions"
-      },
-      "allowedValues": [
-        true,
-        false
-      ]
     },
     "databaseName": {
       "type": "string",
       "defaultValue": "dciudb",
       "metadata": {
-        "description": "The name for the database"
+        "description": "Database name"
       }
-    },
-    "containerName": {
-      "type": "string",
-      "defaultValue": "dciucontainer",
-      "metadata": {
-        "description": "The name for the container"
-      }
-    },
-    "throughput": {
-      "type": "int",
-      "defaultValue": 400,
-      "metadata": {
-        "description": "The throughput for the container"
-      },
-      "maxValue": 1000000,
-      "minValue": 400
     }
-  },
-  "functions": [],
-  "variables": {
-    "locations": [
-      {
-        "locationName": "[parameters('primaryRegion')]",
-        "failoverPriority": 0,
-        "isZoneRedundant": false
-      }
-    ]
   },
   "resources": [
     {
-      "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2021-04-15",
       "name": "[parameters('accountName')]",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2019-12-12",
       "location": "[parameters('location')]",
       "kind": "GlobalDocumentDB",
       "properties": {
-        "consistencyPolicy": "Session",
-        "locations": "[variables('locations')]",
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Eventual",
+          "maxStalenessPrefix": 1,
+          "maxIntervalInSeconds": 5
+        },
+        "locations": [
+          {
+            "locationName": "[parameters('location')]",
+            "failoverPriority": 0
+          }
+        ],
         "databaseAccountOfferType": "Standard",
-        "enableAutomaticFailover": "[parameters('automaticFailover')]"
+        "enableAutomaticFailover": false
       }
     },
     {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
-      "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}', parameters('accountName'), parameters('databaseName'))]",
+      "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases",
+      "name": "[concat( parameters('accountName'), '/sql/', parameters('databaseName'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/', parameters('accountName'))]"
+      ],
       "properties": {
         "resource": {
           "id": "[parameters('databaseName')]"
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')]"
-      ]
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-      "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}', format('{0}/{1}', parameters('accountName'), parameters('databaseName')), parameters('containerName'))]",
-      "properties": {
-        "resource": {
-          "id": "[parameters('containerName')]",
-          "partitionKey": {
-            "paths": [
-              "/myPartitionKey"
-            ],
-            "kind": "Hash"
-          },
-          "indexingPolicy": {
-            "indexingMode": "consistent",
-            "includedPaths": [
-              {
-                "path": "/*"
-              }
-            ],
-            "excludedPaths": [
-              {
-                "path": "/myPathToNotIndex/*"
-              }
-            ],
-            "compositeIndexes": [
-              [
-                {
-                  "path": "/name",
-                  "order": "ascending"
-                },
-                {
-                  "path": "/age",
-                  "order": "descending"
-                }
-              ]
-            ],
-            "spatialIndexes": [
-              {
-                "path": "/location/*",
-                "types": [
-                  "Point",
-                  "Polygon",
-                  "MultiPolygon",
-                  "LineString"
-                ]
-              }
-            ]
-          },
-          "defaultTtl": 86400,
-          "uniqueKeyPolicy": {
-            "uniqueKeys": [
-              {
-                "paths": [
-                  "/phoneNumber"
-                ]
-              }
-            ]
-          }
         },
         "options": {
-          "throughput": "[parameters('throughput')]"
+          "throughput": 400
         }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', split(format('{0}/{1}', parameters('accountName'), parameters('databaseName')), '/')[0], split(format('{0}/{1}', parameters('accountName'), parameters('databaseName')), '/')[1])]"
-      ]
+      }
     }
   ]
 }
