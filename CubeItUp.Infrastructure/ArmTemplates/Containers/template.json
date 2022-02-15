@@ -12,8 +12,8 @@
         }
     },
     "variables": {
-        "registryName": "[concat(parameters('resourcePrefix'), 'acr')]",
-        "workspaceName": "[concat(parameters('resourcePrefix'), 'ws')]"
+        "registryName": "[concat(parameters('resourcePrefix'), 'cr')]",
+        "workspaceName": "[concat(parameters('resourcePrefix'), 'law')]"
     },
     "resources": [
         {
